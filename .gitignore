@@ -419,4 +419,4 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/unrealengine,visualstudio
 
 # Ignore Starter Content
-Building_Escape/Content/StarterContent/**
+Content/StarterContent/**
