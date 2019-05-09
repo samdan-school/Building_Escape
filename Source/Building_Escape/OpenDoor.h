@@ -14,17 +14,16 @@ class BUILDING_ESCAPE_API UOpenDoor : public UActorComponent
 	GENERATED_BODY()
 
 private:
-	UPROPERTY(VisibleAnywhere)
-		float OpenAngle = 0.0f;
+	float OpenAngle = 0.0f;
 	float CloseAngle = 90.0f;
-	UPROPERTY(EditAnywhere)
-		ATriggerVolume* PressurePlate;
-	UPROPERTY(VisibleAnywhere)
-		AActor* ActorThatOpens; // Pawn inherites actor
-	UPROPERTY(EditAnywhere)
-		float DoorCloseDelay = 0.5f;
 	float LastDoorOpenTime = 0.f;
 	AActor* Owner;
+	UPROPERTY(EditAnywhere)
+		float DoorCloseDelay = 0.5f;
+	UPROPERTY(EditAnywhere)
+		ATriggerVolume* PressurePlate;
+	UPROPERTY(EditAnywhere)
+		AActor* ActorThatOpens; // Pawn inherites actor
 
 public:
 	// Sets default values for this component's properties
