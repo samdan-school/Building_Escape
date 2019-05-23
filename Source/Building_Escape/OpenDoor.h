@@ -2,44 +2,44 @@
 
 #pragma once
 
-#include "Engine/TriggerVolume.h"
-#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "CoreMinimal.h"
+#include "Engine/TriggerVolume.h"
+
 #include "OpenDoor.generated.h"
 
-
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
-class BUILDING_ESCAPE_API UOpenDoor : public UActorComponent
-{
-	GENERATED_BODY()
+class BUILDING_ESCAPE_API UOpenDoor : public UActorComponent {
+    GENERATED_BODY()
 
-private:
-	float OpenAngle = 0.0f;
-	float CloseAngle = 90.0f;
-	float LastDoorOpenTime = 0.f;
-	AActor* Owner;
-	UPROPERTY(EditAnywhere)
-		float DoorCloseDelay = 0.5f;
-	UPROPERTY(EditAnywhere)
-		ATriggerVolume* PressurePlate;
-	UPROPERTY(EditAnywhere)
-		AActor* ActorThatOpens; // Pawn inherites actor
+  private:
+    float OpenAngle = 0.0f;
+    float CloseAngle = 90.0f;
+    float LastDoorOpenTime = 0.f;
+    AActor *Owner;
+    UPROPERTY(EditAnywhere)
+    float DoorCloseDelay = 0.5f;
+    UPROPERTY(EditAnywhere)
+    ATriggerVolume *PressurePlate;
 
-public:
-	// Sets default values for this component's properties
-	UOpenDoor();
+    // return total mass in kg
+    float GetTotalMassOfActorsOnPlate() const;
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+  public:
+    // Sets default values for this component's properties
+    UOpenDoor();
 
-	void OpenDoor();
+  protected:
+    // Called when the game starts
+    virtual void BeginPlay() override;
 
-	void CloseDoor();
+    void OpenDoor();
 
-public:
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+    void CloseDoor();
 
-
+  public:
+    // Called every frame
+    virtual void
+    TickComponent(float DeltaTime, ELevelTick TickType,
+                  FActorComponentTickFunction *ThisTickFunction) override;
 };
