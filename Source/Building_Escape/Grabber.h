@@ -4,12 +4,13 @@
 
 #include "Components/ActorComponent.h"
 #include "Components/InputComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "CoreMinimal.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 
 #include "Grabber.generated.h"
 
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent)) 
 class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
     GENERATED_BODY()
 
@@ -46,6 +47,5 @@ class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
   public:
     // Called every frame
     virtual void
-    TickComponent(float DeltaTime, ELevelTick TickType,
-                  FActorComponentTickFunction *ThisTickFunction) override;
+    TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 };
