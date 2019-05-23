@@ -10,7 +10,7 @@
 
 #include "Grabber.generated.h"
 
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent)) 
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
     GENERATED_BODY()
 
@@ -36,6 +36,12 @@ class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
     // return hit for first physics body in reach
     const FHitResult GetFirstPhysicsBodyInReach();
 
+    // Return current end of reach line
+    FVector GetReachLineStart() const;
+
+    // Return current end of reach line
+    FVector GetReachLineEnd() const;
+
   public:
     // Sets default values for this component's properties
     UGrabber();
@@ -47,5 +53,6 @@ class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
   public:
     // Called every frame
     virtual void
-    TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+    TickComponent(float DeltaTime, ELevelTick TickType,
+                  FActorComponentTickFunction *ThisTickFunction) override;
 };
