@@ -10,36 +10,37 @@
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BUILDING_ESCAPE_API UOpenDoor : public UActorComponent {
-    GENERATED_BODY()
+	GENERATED_BODY()
 
-  private:
-    float OpenAngle = 0.0f;
-    float CloseAngle = 90.0f;
-    float LastDoorOpenTime = 0.f;
-    AActor *Owner;
-    UPROPERTY(EditAnywhere)
-    float DoorCloseDelay = 0.5f;
-    UPROPERTY(EditAnywhere)
-    ATriggerVolume *PressurePlate;
+private:
+	float OpenAngle = 0.0f;
+	float CloseAngle = 90.0f;
+	float LastDoorOpenTime = 0.f;
+	AActor *Owner = nullptr;
 
-    // return total mass in kg
-    float GetTotalMassOfActorsOnPlate() const;
+	UPROPERTY(EditAnywhere)
+		float DoorCloseDelay = 0.5f;
 
-  public:
-    // Sets default values for this component's properties
-    UOpenDoor();
+	UPROPERTY(EditAnywhere)
+		ATriggerVolume *PressurePlate = nullptr;
 
-  protected:
-    // Called when the game starts
-    virtual void BeginPlay() override;
+	// return total mass in kg
+	float GetTotalMassOfActorsOnPlate() const;
 
-    void OpenDoor();
+public:
+	// Sets default values for this component's properties
+	UOpenDoor();
 
-    void CloseDoor();
+protected:
+	// Called when the game starts
+	virtual void BeginPlay() override;
 
-  public:
-    // Called every frame
-    virtual void
-    TickComponent(float DeltaTime, ELevelTick TickType,
-                  FActorComponentTickFunction *ThisTickFunction) override;
+	void OpenDoor();
+
+	void CloseDoor();
+
+public:
+	// Called every frame
+	virtual void
+		TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 };

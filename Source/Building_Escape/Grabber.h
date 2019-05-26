@@ -53,6 +53,5 @@ class BUILDING_ESCAPE_API UGrabber : public UActorComponent {
   public:
     // Called every frame
     virtual void
-    TickComponent(float DeltaTime, ELevelTick TickType,
-                  FActorComponentTickFunction *ThisTickFunction) override;
+    TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 };
