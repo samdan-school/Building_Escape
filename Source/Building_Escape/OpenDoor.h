@@ -8,6 +8,9 @@
 
 #include "OpenDoor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOpenRequest);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCloseRequest);
+
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BUILDING_ESCAPE_API UOpenDoor : public UActorComponent {
 	GENERATED_BODY()
@@ -23,6 +26,12 @@ private:
 
 	UPROPERTY(EditAnywhere)
 		ATriggerVolume *PressurePlate = nullptr;
+
+	UPROPERTY(BluePrintAssignable)
+		FOnOpenRequest OnOpenRequest;
+
+	UPROPERTY(BluePrintAssignable)
+		FOnCloseRequest OnCloseRequest;
 
 	// return total mass in kg
 	float GetTotalMassOfActorsOnPlate() const;
